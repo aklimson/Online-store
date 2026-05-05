@@ -1,13 +1,13 @@
 # Project Setup Instructions
 
-This section explains how to clone the project, install the needed dependencies, and run the frontend and backend locally.
+This section explains how to clone the project, install the needed dependencies and run the frontend and backend locally.
 
 ---
 
 ## 1. Clone the repository
 
 ```bash
-git clone <PASTE_REPOSITORY_LINK_HERE>
+git clone https://github.com/aklimson/Online-store.git
 ```
 
 Then open the project folder:
