@@ -1,0 +1,23 @@
+.products-page {
+  padding: 40px 20px;
+}
+
+.products-header {
+  margin-bottom: 30px;
+}
+
+.products-header h1 {
+  margin-bottom: 8px;
+}
+
+.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-item {
+  border: 1px solid #dddddd;
+  padding: 16px;
+  border-radius: 8px;
+}
