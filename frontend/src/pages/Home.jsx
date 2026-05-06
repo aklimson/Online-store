@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import "../styles/Home.css";
 
 function Home() {
   return (
     <main className="home">
       <section className="home-intro">
-        <h1>ElectroStore</h1>
-        <p>Find TVs, phones, laptops and accessories at great prices.</p>
+        <h1>Store</h1>
+        <p>TVs, phones, laptops and accessories at unbeatable prices.</p>
       </section>
 
       <section className="home-cta">
@@ -18,7 +19,7 @@ function Home() {
       </section>
 
       <section className="home-categories">
-        <h2>Popular categories</h2>
+        <h2>Categories</h2>
 
         <div className="category-grid">
           <div>TVs</div>

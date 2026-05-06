@@ -1,0 +1,49 @@
+.home {
+  padding: 40px 24px;
+}
+
+/* intro section */
+.home-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.home-intro h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+/* CTA section */
+.home-cta {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.home-button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+/* categories placeholder */
+.home-categories {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.category-grid div {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
