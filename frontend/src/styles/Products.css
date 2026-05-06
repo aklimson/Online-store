@@ -21,3 +21,26 @@
   padding: 16px;
   border-radius: 8px;
 }
+
+.product-description {
+  color: #555555;
+  margin: 8px 0;
+}
+
+.product-price {
+  font-weight: bold;
+  margin: 12px 0;
+}
+
+.product-button {
+  background-color: #eeeeee;
+  color: #222222;
+  border: 1px solid #cccccc;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.product-button:hover {
+  background-color: #e2e2e2;
+}
