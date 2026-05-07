@@ -17,5 +17,3 @@ Thumbs.db
 .vscode/
 .idea/
 
-package-lock.json
-package.json
