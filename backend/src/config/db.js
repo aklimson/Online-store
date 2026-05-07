@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+const Customer = {name}
+
 
 const connectDB = async () => {
   try {
@@ -9,5 +11,8 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+
+
+
 
 export default connectDB;
