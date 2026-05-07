@@ -38,11 +38,17 @@ function Products() {
       <section className="products-list">
         {products.map((product) => (
           <div className="product-item" key={product.id}>
-            <h2>{product.name}</h2>
-            <p className="product-description">{product.description}</p>
-            <p className="product-price">{product.price}</p>
+            <div className="product-image-placeholder">
+              Product Image
+            </div>
 
-            <button className="product-button">View product</button>
+            <div className="product-info">
+              <h2>{product.name}</h2>
+              <p className="product-description">{product.description}</p>
+              <p className="product-price">{product.price}</p>
+
+              <button className="product-button">View product</button>
+            </div>
           </div>
         ))}
       </section>
