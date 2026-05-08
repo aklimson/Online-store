@@ -1,4 +1,5 @@
 import "../styles/Products.css";
+import { Link } from "react-router-dom";
 
 function Products() {
   const products = [
@@ -47,7 +48,9 @@ function Products() {
               <p className="product-description">{product.description}</p>
               <p className="product-price">{product.price}</p>
 
-              <button className="product-button">View product</button>
+              <Link className="product-button" to={`/products/${product.id}`}>
+                View product
+              </Link>
             </div>
           </div>
         ))}

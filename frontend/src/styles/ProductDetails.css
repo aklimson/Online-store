@@ -1,0 +1,134 @@
+.product-details-page {
+  padding: 40px 24px;
+}
+
+.product-details-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.product-details-image {
+  min-height: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  color: #777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.product-details-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.product-details-info h1 {
+  font-size: 36px;
+  margin: 8px 0 12px;
+}
+
+.product-details-label {
+  color: #777;
+  margin: 0;
+}
+
+.product-details-price {
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.product-details-description {
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.product-details-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.details-button {
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.primary-button {
+  background: black;
+  color: white;
+  border: 1px solid black;
+}
+
+.secondary-button {
+  background: white;
+  color: black;
+  border: 1px solid #ddd;
+}
+
+.details-button:hover {
+  opacity: 0.85;
+}
+
+/* tablet */
+@media (max-width: 768px) {
+  .product-details-page {
+    padding: 32px 18px;
+  }
+
+  .product-details-card {
+    grid-template-columns: 1fr;
+  }
+
+  .product-details-image {
+    min-height: 240px;
+  }
+
+  .product-details-info h1 {
+    font-size: 30px;
+  }
+}
+
+/* mobile */
+@media (max-width: 480px) {
+  .product-details-page {
+    padding: 24px 14px;
+  }
+
+  .product-details-card {
+    padding: 16px;
+  }
+
+  .product-details-image {
+    min-height: 200px;
+  }
+
+  .product-details-info h1 {
+    font-size: 26px;
+  }
+
+  .product-details-actions {
+    flex-direction: column;
+  }
+
+  .details-button {
+    text-align: center;
+  }
+}
