@@ -42,8 +42,14 @@
   margin-top: 16px;
 }
 
-.category-grid div {
+.category-grid a {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
+  text-decoration: none;
+  color: black;
+}
+
+.category-grid a:hover {
+  background-color: #f7f7f7;
 }
