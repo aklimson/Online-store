@@ -80,6 +80,7 @@
   border-radius: 6px;
   cursor: pointer;
   text-decoration: none;
+  display: inline-block;
 }
 
 .product-button:hover {
@@ -114,6 +115,27 @@
   .products-header h1 {
     font-size: 28px;
   }
+
+  .products-search {
+  width: 100%;
+  max-width: 420px;
+  margin-top: 20px;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.products-search:focus {
+  outline: none;
+  border-color: #999;
+}
+
+.no-products-message {
+  text-align: center;
+  color: #555;
+  margin-top: 30px;
+}
 
   .product-item {
     padding: 16px;

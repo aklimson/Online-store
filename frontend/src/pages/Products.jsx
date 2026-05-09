@@ -1,7 +1,10 @@
-import "../styles/Products.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import "../styles/Products.css";
 
 function Products() {
+  const [searchTerm, setSearchTerm] = useState("");
+
   const products = [
     {
       id: 1,
@@ -29,32 +32,46 @@ function Products() {
     },
   ];
 
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <main className="products-page">
       <section className="products-header">
         <h1>Products</h1>
         <p>Browse our available products.</p>
+
+        <input
+          className="products-search"
+          type="text"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
       </section>
 
-      <section className="products-list">
-        {products.map((product) => (
-          <div className="product-item" key={product.id}>
-            <div className="product-image-placeholder">
-              Product Image
-            </div>
+      {filteredProducts.length === 0 ? (
+        <p className="no-products-message">No products found.</p>
+      ) : (
+        <section className="products-list">
+          {filteredProducts.map((product) => (
+            <div className="product-item" key={product.id}>
+              <div className="product-image-placeholder">Product Image</div>
 
-            <div className="product-info">
-              <h2>{product.name}</h2>
-              <p className="product-description">{product.description}</p>
-              <p className="product-price">{product.price}</p>
+              <div className="product-info">
+                <h2>{product.name}</h2>
+                <p className="product-description">{product.description}</p>
+                <p className="product-price">{product.price}</p>
 
-              <Link className="product-button" to={`/products/${product.id}`}>
-                View product
-              </Link>
+                <Link className="product-button" to={`/products/${product.id}`}>
+                  View product
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
-      </section>
+          ))}
+        </section>
+      )}
     </main>
   );
 }
