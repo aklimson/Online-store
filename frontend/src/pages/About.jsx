@@ -24,7 +24,7 @@ function About() {
 
           <ul className="team-list">
             <li>
-              <strong>Anastasia</strong> — Project setup, homepage, frontend
+              <strong>Anastasia Klimson</strong> — Project setup, homepage, frontend
               layout
             </li>
 
