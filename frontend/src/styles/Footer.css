@@ -1,0 +1,64 @@
+.footer {
+  background-color: #111827;
+  color: white;
+  margin-top: 30px;
+  padding: 10px 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-container h2 {
+  font-size: 2rem;
+  margin: 5px 0;
+  color: #60a5fa;
+}
+
+.footer-slogan {
+  color: #d1d5db;
+  margin: 5px 0 10px;
+  font-size: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #9ca3af;
+}
+
+.footer-course,
+.footer-copy {
+  color: #9ca3af;
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 8px 15px;
+  }
+
+  .footer-container h2 {
+    font-size: 1.7rem;
+  }
+
+  .footer-links {
+    gap: 8px;
+  }
+}

@@ -1,0 +1,29 @@
+.cart {
+  padding: 40px 24px;
+}
+
+.cart h1 {
+  margin-bottom: 24px;
+}
+
+.cart-items {
+  margin-bottom: 32px;
+}
+
+.cart-item {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.cart-summary {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.cart-summary button {
+  margin-top: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
