@@ -1,51 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import "../styles/Products.css";
 
 function Products() {
+  const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedCategory = searchParams.get("category");
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001/api";
+
   const categories = [
     { label: "All", value: "" },
-    { label: "TVs", value: "tvs" },
-    { label: "Phones", value: "phones" },
-    { label: "Laptops", value: "laptops" },
-    { label: "Accessories", value: "accessories" },
+    { label: "Phones", value: "Phone" },
+    { label: "Laptops", value: "Laptop" },
+    { label: "TVs", value: "Television" },
+    { label: "Accessories", value: "Accesories" },
   ];
 
-  const products = [
-    {
-      id: 1,
-      name: "Product Name 1",
-      category: "phones",
-      price: "999 SEK",
-      description: "Short product description will be shown here.",
-    },
-    {
-      id: 2,
-      name: "Product Name 2",
-      category: "laptops",
-      price: "1299 SEK",
-      description: "Short product description will be shown here.",
-    },
-    {
-      id: 3,
-      name: "Product Name 3",
-      category: "tvs",
-      price: "799 SEK",
-      description: "Short product description will be shown here.",
-    },
-    {
-      id: 4,
-      name: "Product Name 4",
-      category: "accessories",
-      price: "1499 SEK",
-      description: "Short product description will be shown here.",
-    },
-  ];
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        setIsLoading(true);
+        setErrorMessage("");
+
+        const response = await fetch(`${API_URL}/products`);
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error(error);
+        setErrorMessage("Could not load products. Please try again later.");
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchProducts();
+  }, [API_URL]);
 
   const handleCategoryChange = (category) => {
     if (category) {
@@ -56,9 +55,12 @@ function Products() {
   };
 
   const filteredProducts = products.filter((product) => {
-    const matchesSearch = product.name
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
+    const searchValue = searchTerm.toLowerCase();
+
+    const matchesSearch =
+      product.name?.toLowerCase().includes(searchValue) ||
+      product.model?.toLowerCase().includes(searchValue) ||
+      product.description?.toLowerCase().includes(searchValue);
 
     const matchesCategory = selectedCategory
       ? product.category === selectedCategory
@@ -99,20 +101,37 @@ function Products() {
         </div>
       </section>
 
-      {filteredProducts.length === 0 ? (
+      {isLoading && <p className="products-status">Loading products...</p>}
+
+      {errorMessage && <p className="products-status error">{errorMessage}</p>}
+
+      {!isLoading && !errorMessage && filteredProducts.length === 0 && (
         <p className="no-products-message">No products found.</p>
-      ) : (
+      )}
+
+      {!isLoading && !errorMessage && filteredProducts.length > 0 && (
         <section className="products-list">
           {filteredProducts.map((product) => (
-            <div className="product-item" key={product.id}>
+            <div className="product-item" key={product._id}>
               <div className="product-image-placeholder">Product Image</div>
 
               <div className="product-info">
+                <p className="product-category">{product.category}</p>
                 <h2>{product.name}</h2>
-                <p className="product-description">{product.description}</p>
-                <p className="product-price">{product.price}</p>
 
-                <Link className="product-button" to={`/products/${product.id}`}>
+                <p className="product-model">Model: {product.model}</p>
+
+                <p className="product-description">{product.description}</p>
+
+                <p className="product-price">{product.price} SEK</p>
+
+                <p className="product-stock">
+                  {product.quantity > 0
+                    ? `${product.quantity} in stock`
+                    : "Out of stock"}
+                </p>
+
+                <Link className="product-button" to={`/products/${product._id}`}>
                   View product
                 </Link>
               </div>
