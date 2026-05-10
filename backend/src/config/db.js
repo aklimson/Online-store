@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const Customer = {name}
+
 
 
 const connectDB = async () => {
