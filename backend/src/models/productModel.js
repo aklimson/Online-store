@@ -1,26 +1,17 @@
 import Product from "./schema/productSchema.js";
 
 class ProductModel {
-    async getAllProducts() {
+  async getAllProducts() {
+    return [{"name": "John"}];
+  }
 
-    }
+  async getAllPhones() {}
 
-    async getAllPhones() {
-        
-    }
+  async getAllLaptops() {}
 
-    async getAllLaptops() {
-        
-    }
+  async getAllTelevisions() {}
 
-    async getAllTelevisions() {
-        
-    }
-
-    async getAllAccessories() {
-        
-    }
+  async getAllAccessories() {}
 }
 
-
-export default new ProductModel()
+export default new ProductModel();
