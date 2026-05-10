@@ -4,7 +4,7 @@ import logger from "morgan";
 import helmet from "helmet";
 import dotenv from "dotenv";
 import { errorHandler } from "./middleware/errorHandler.js";
-import { router } from "./routes/index.js";
+import { router as route } from "./routes/index.js";
 dotenv.config();
 
 export const app = express();
@@ -21,7 +21,7 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(router)
+app.use(route);
 
 app.use(errorHandler.notFoundDefault);
 

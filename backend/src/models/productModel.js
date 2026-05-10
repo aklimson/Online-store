@@ -2,16 +2,21 @@ import Product from "./schema/productSchema.js";
 
 class ProductModel {
   async getAllProducts() {
-    return [{"name": "John"}];
+    return await Product.find({});
   }
 
-  async getAllPhones() {}
+  async getProductsByCategory(category) {
+    return await Product.find({ category });
+  }
 
-  async getAllLaptops() {}
-
-  async getAllTelevisions() {}
-
-  async getAllAccessories() {}
+  async searchProducts(searchStr) {
+    return await Product.find({
+      $or: [
+        { name: { $regex: searchStr, $options: "i" } },
+        { model: { $regex: searchStr, $options: "i" } }
+      ],
+    });
+  }
 }
 
 export default new ProductModel();

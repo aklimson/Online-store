@@ -1,15 +1,34 @@
 import model from "../models/productModel.js";
 
 class ProductController {
-  getAllProducts(req, res, next) {}
+  async getAllProducts(req, res, next) {
+    try {
+      const result = await model.getAllProducts();
+      res.json(result);
+    } catch (error) {
+      next(error);
+    }
+  }
 
-  getAllPhones(req, res, next) {}
+  async getProductsByCategory(req, res, next) {
+    try {
+      const { category } = req.body;
+      const result = await model.getProductsByCategory(category);
+      res.json(result);
+    } catch (error) {
+      next(error);
+    }
+  }
 
-  getAllLaptops(req, res, next) {}
-
-  getAllTelevisions(req, res, next) {}
-
-  getAllAccessories(req, res, next) {}
+  async searchProducts(req, res, next) {
+    try {
+      const search = req.query.searchString;
+      const result = await model.searchProducts(search);
+      res.json(result);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 export default new ProductController();
