@@ -11,6 +11,7 @@ const ProductSchema = new Schema({
     type: Map,
     of: String,
   },
+  image: { type: String, required: true },
   price: { type: Number, required: true, min: 0 },
   quantity: { type: Number, required: true, min: 0 },
   timeCreated: { type: Date, default: Date.now },
