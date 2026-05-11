@@ -19,7 +19,7 @@ function Products() {
     { label: "Phones", value: "Phone" },
     { label: "Laptops", value: "Laptop" },
     { label: "TVs", value: "Television" },
-    { label: "Accessories", value: "Accesories" },
+    { label: "Accessories", value: "Accessories" },
   ];
 
   useEffect(() => {
