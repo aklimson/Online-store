@@ -5,12 +5,13 @@ const Schema = mongoose.Schema;
 const ProductSchema = new Schema({
   name: { type: String, required: true },
   model: { type: String, required: true },
-  category: { type: String, required: true, enum: ["Phone", "Laptop", "Television", "Accesories"]},
+  category: { type: String, required: true, enum: ["Phone", "Laptop", "Television", "Accessories"]},
   description: { type: String, required: true },
   specifications: {
-    ram: { type: String, required: true },
-    ssd: { type: String, required: true },
+    type: Map,
+    of: String,
   },
+  image: { type: String, required: true },
   price: { type: Number, required: true, min: 0 },
   quantity: { type: Number, required: true, min: 0 },
   timeCreated: { type: Date, default: Date.now },

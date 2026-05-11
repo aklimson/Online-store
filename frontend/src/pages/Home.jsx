@@ -22,10 +22,10 @@ function Home() {
         <h2>Categories</h2>
 
         <div className="category-grid">
-          <Link to="/products?category=tvs">TVs</Link>
-          <Link to="/products?category=phones">Phones</Link>
-          <Link to="/products?category=laptops">Laptops</Link>
-          <Link to="/products?category=accessories">Accessories</Link>
+          <Link to="/products?category=Television">TVs</Link>
+          <Link to="/products?category=Phone">Phones</Link>
+          <Link to="/products?category=Laptop">Laptops</Link>
+          <Link to="/products?category=Accessories">Accessories</Link>
         </div>
       </section>
     </main>
