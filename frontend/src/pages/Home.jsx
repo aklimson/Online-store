@@ -25,7 +25,7 @@ function Home() {
           <Link to="/products?category=Television">TVs</Link>
           <Link to="/products?category=Phone">Phones</Link>
           <Link to="/products?category=Laptop">Laptops</Link>
-          <Link to="/products?category=Accesories">Accessories</Link>
+          <Link to="/products?category=Accessories">Accessories</Link>
         </div>
       </section>
     </main>
