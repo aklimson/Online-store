@@ -5,6 +5,7 @@ import "../styles/Products.css";
 function Products() {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortOption, setSortOption] = useState("default");
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -69,6 +70,22 @@ function Products() {
     return matchesSearch && matchesCategory;
   });
 
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    if (sortOption === "price-low") {
+      return a.price - b.price;
+    }
+
+    if (sortOption === "price-high") {
+      return b.price - a.price;
+    }
+
+    if (sortOption === "name-az") {
+      return a.name.localeCompare(b.name);
+    }
+
+    return 0;
+  });
+
   return (
     <main className="products-page">
       <section className="products-header">
@@ -99,19 +116,34 @@ function Products() {
             </button>
           ))}
         </div>
+
+        <div className="sort-control">
+          <label htmlFor="sort-products">Sort by:</label>
+
+          <select
+            id="sort-products"
+            value={sortOption}
+            onChange={(event) => setSortOption(event.target.value)}
+          >
+            <option value="default">Default</option>
+            <option value="price-low">Price: low to high</option>
+            <option value="price-high">Price: high to low</option>
+            <option value="name-az">Name: A-Z</option>
+          </select>
+        </div>
       </section>
 
       {isLoading && <p className="products-status">Loading products...</p>}
 
       {errorMessage && <p className="products-status error">{errorMessage}</p>}
 
-      {!isLoading && !errorMessage && filteredProducts.length === 0 && (
+      {!isLoading && !errorMessage && sortedProducts.length === 0 && (
         <p className="no-products-message">No products found.</p>
       )}
 
-      {!isLoading && !errorMessage && filteredProducts.length > 0 && (
+      {!isLoading && !errorMessage && sortedProducts.length > 0 && (
         <section className="products-list">
-          {filteredProducts.map((product) => (
+          {sortedProducts.map((product) => (
             <div className="product-item" key={product._id}>
               <div className="product-image-placeholder">Product Image</div>
 
