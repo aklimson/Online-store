@@ -125,7 +125,13 @@ function Products() {
 
                 <p className="product-price">{product.price} SEK</p>
 
-                <p className="product-stock">
+                <p
+                  className={
+                    product.quantity > 0
+                      ? "product-stock in-stock"
+                      : "product-stock out-of-stock"
+                  }
+                >
                   {product.quantity > 0
                     ? `${product.quantity} in stock`
                     : "Out of stock"}

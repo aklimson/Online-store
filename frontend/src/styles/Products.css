@@ -46,8 +46,16 @@
 }
 
 .product-stock {
-  color: #555;
   margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.product-stock.in-stock {
+  color: #1f7a3f;
+}
+
+.product-stock.out-of-stock {
+  color: #b00020;
 }
 
 .products-status {
