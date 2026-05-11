@@ -75,13 +75,6 @@ cd backend
 npm install
 npm run dev
 ```
-
-The backend usually runs on:
-
-```txt
-http://localhost:5000
-```
-
 ---
 
 ## 6. Environment variables
@@ -93,9 +86,22 @@ Use `backend/.env.example` as a template:
 ```env
 PORT=5000
 MONGO_URI=your_mongodb_connection_string_here
+API_URL= http://localhost
 JWT_SECRET=your_jwt_secret_here
 ```
 
 Do not upload `.env` to GitHub.
 
 ---
+---
+
+## 7. Seed the database
+
+This project includes a seed script to populate the database with products.
+
+### Run the seed script
+
+From the `backend` folder:
+
+```bash
+node seed.js
