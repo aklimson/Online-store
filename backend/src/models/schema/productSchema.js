@@ -8,8 +8,8 @@ const ProductSchema = new Schema({
   category: { type: String, required: true, enum: ["Phone", "Laptop", "Television", "Accesories"]},
   description: { type: String, required: true },
   specifications: {
-    ram: { type: String, required: true },
-    ssd: { type: String, required: true },
+    type: Map,
+    of: String,
   },
   price: { type: Number, required: true, min: 0 },
   quantity: { type: Number, required: true, min: 0 },
