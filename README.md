@@ -104,4 +104,4 @@ This project includes a seed script to populate the database with products.
 From the `backend` folder:
 
 ```bash
-node seed.js
+node productSeed.js
