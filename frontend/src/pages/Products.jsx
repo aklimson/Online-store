@@ -145,7 +145,13 @@ function Products() {
         <section className="products-list">
           {sortedProducts.map((product) => (
             <div className="product-item" key={product._id}>
-              <div className="product-image-placeholder">Product Image</div>
+              <img
+              className="product-image"
+              src={product.image}
+              alt={product.name}
+              onError={(e) => {
+                e.target.src = "https://images.unsplash.com/photo-1523275335684-37898b6baf30";
+              }}/>
 
               <div className="product-info">
                 <p className="product-category">{product.category}</p>
