@@ -14,7 +14,7 @@
 }
 
 .product-details-image {
-  min-height: 300px;
+  min-height: 320px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f7f7f7;
@@ -26,33 +26,79 @@
   padding: 20px;
 }
 
+.product-details-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
 .product-details-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+}
+
+.product-details-category {
+  color: #555;
+  margin: 0 0 8px;
+  font-size: 15px;
 }
 
 .product-details-info h1 {
   font-size: 36px;
-  margin: 8px 0 12px;
+  margin: 0 0 12px;
 }
 
-.product-details-label {
-  color: #777;
-  margin: 0;
+.product-details-model {
+  color: #555;
+  margin-bottom: 12px;
 }
 
 .product-details-price {
   font-weight: bold;
-  font-size: 22px;
-  margin-bottom: 16px;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.product-details-stock {
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+.product-details-stock.in-stock {
+  color: #1f7a3f;
+}
+
+.product-details-stock.out-of-stock {
+  color: #b00020;
 }
 
 .product-details-description {
   color: #555;
   line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+.product-specifications {
+  border-top: 1px solid #ddd;
+  padding-top: 16px;
   margin-bottom: 24px;
+}
+
+.product-specifications h2 {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+.product-specifications ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #555;
+}
+
+.product-specifications li {
+  margin-bottom: 6px;
 }
 
 .product-details-actions {
@@ -69,6 +115,7 @@
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
+  text-align: center;
 }
 
 .primary-button {
@@ -85,6 +132,12 @@
 
 .details-button:hover {
   opacity: 0.85;
+}
+
+.product-details-status {
+  text-align: center;
+  color: #555;
+  margin-top: 40px;
 }
 
 /* product not found */
@@ -122,10 +175,6 @@
   line-height: 1.5;
 }
 
-.product-not-found .details-button {
-  margin-top: 4px;
-}
-
 /* tablet */
 @media (max-width: 768px) {
   .product-details-page {
@@ -140,8 +189,16 @@
     min-height: 240px;
   }
 
+  .product-details-info {
+    text-align: center;
+  }
+
   .product-details-info h1 {
     font-size: 30px;
+  }
+
+  .product-specifications {
+    text-align: left;
   }
 }
 
@@ -168,7 +225,8 @@
   }
 
   .details-button {
-    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .product-not-found {
