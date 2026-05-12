@@ -17,6 +17,12 @@ class ProductModel {
       ],
     });
   }
+
+  async getProductById(id) {
+    return await Product.findById(id);
+  }
 }
+
+  
 
 export default new ProductModel();
