@@ -15,4 +15,8 @@ router.get("/products/search", (req, res, next) => {
   controller.searchProducts(req, res, next);
 });
 
+router.get("/products/:id", (req, res, next) => {
+  controller.getProductById(req, res, next);
+});
+
 export default router;
