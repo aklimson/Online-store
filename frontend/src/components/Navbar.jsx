@@ -50,16 +50,24 @@ function Navbar() {
 
         {user ? (
           <div className="navbar-auth">
-            <span className="navbar-user">Hi, {user.firstname}</span>
+            <Link to="/account" className="navbar-user">
+              Hi, {user.firstname}
+            </Link>
+
             <button className="logout-button" onClick={handleLogout}>
               Logout
             </button>
           </div>
         ) : (
-          <>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign up</Link>
-          </>
+          <div className="navbar-auth">
+            <Link to="/login" className="login-nav-link">
+              Login
+            </Link>
+
+            <Link to="/signup" className="signup-nav-button">
+              Sign up
+            </Link>
+          </div>
         )}
       </nav>
     </header>

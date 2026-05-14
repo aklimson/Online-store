@@ -8,9 +8,11 @@ import Signup from "./pages/Signup";
 import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
 import ResetPassword from "./pages/ResetPassword";
+import Account from "./pages/Account";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
 
       <Footer />

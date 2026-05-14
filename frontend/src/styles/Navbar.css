@@ -47,6 +47,12 @@
   padding: 7px 12px;
   border-radius: 20px;
   white-space: nowrap;
+  text-decoration: none;
+}
+
+.navbar-user:hover {
+  text-decoration: none;
+  background-color: #e5e7eb;
 }
 
 .logout-button {
@@ -62,4 +68,29 @@
 .logout-button:hover {
   background: #111;
   color: white;
+}
+
+.login-nav-link {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+}
+
+.login-nav-link:hover {
+  text-decoration: underline;
+}
+
+.signup-nav-button {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  padding: 7px 14px;
+  border: 1px solid #111;
+  border-radius: 20px;
+}
+
+.signup-nav-button:hover {
+  background-color: #111;
+  color: white;
+  text-decoration: none;
 }
