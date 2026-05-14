@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
+import ResetPassword from "./pages/ResetPassword";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
 
       <Footer />

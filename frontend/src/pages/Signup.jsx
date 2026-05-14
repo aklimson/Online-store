@@ -39,6 +39,7 @@ function Signup() {
           value={formData.fullName}
           onChange={handleChange}
           className="signup-input"
+          minLength="6"
           required
         />
 
