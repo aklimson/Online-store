@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 import "../styles/Signup.css";
 
 function Signup() {
   const [formData, setFormData] = useState({
-    fullName: "",
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    address: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -18,12 +22,10 @@ function Signup() {
     });
   };
 
-  // SUBMIT HANDLER (placeholder for future API integration)
+  // SUBMIT HANDLER
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // TODO: validation logic
-    // TODO: API request (backend connection)
     console.log("Signup Data:", formData);
   };
 
@@ -34,12 +36,41 @@ function Signup() {
 
         <input
           type="text"
-          name="fullName"
-          placeholder="Full Name"
-          value={formData.fullName}
+          name="firstName"
+          placeholder="First Name"
+          value={formData.firstName}
           onChange={handleChange}
           className="signup-input"
-          minLength="6"
+          required
+        />
+
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Last Name"
+          value={formData.lastName}
+          onChange={handleChange}
+          className="signup-input"
+          required
+        />
+
+        <input
+          type="tel"
+          name="phoneNumber"
+          placeholder="Phone Number"
+          value={formData.phoneNumber}
+          onChange={handleChange}
+          className="signup-input"
+          required
+        />
+
+        <input
+          type="text"
+          name="address"
+          placeholder="Address"
+          value={formData.address}
+          onChange={handleChange}
+          className="signup-input"
           required
         />
 
