@@ -45,6 +45,12 @@ export function CartProvider({ children }) {
     );
   }
 
+  function removeFromCart(productId) {
+    setCartItems(prev =>
+        prev.filter(item => item._id !== productId)
+    );
+    }
+
   return (
     <CartContext.Provider
       value={{
@@ -52,6 +58,7 @@ export function CartProvider({ children }) {
         addToCart,
         increaseQuantity,
         decreaseQuantity,
+        removeFromCart,
       }}
     >
       {children}
