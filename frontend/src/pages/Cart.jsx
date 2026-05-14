@@ -6,7 +6,8 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 function Cart() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, increaseQuantity, decreaseQuantity } =
+    useContext(CartContext);
 
   if (cartItems.length === 0) {
     return (
@@ -32,12 +33,20 @@ function Cart() {
 
           <div className="cart-item-info">
             <h2>{product.name}</h2>
-
             <p>{product.model}</p>
-
             <p>{product.price} SEK</p>
 
-            <p>Quantity: {product.quantity}</p>
+            <div className="cart-quantity-controls">
+              <button onClick={() => decreaseQuantity(product._id)}>
+                -
+              </button>
+
+              <span>{product.quantity}</span>
+
+              <button onClick={() => increaseQuantity(product._id)}>
+                +
+              </button>
+            </div>
           </div>
         </section>
       ))}
