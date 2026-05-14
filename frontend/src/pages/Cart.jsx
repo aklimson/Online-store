@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 function Cart() {
-  const { cartItems, increaseQuantity, decreaseQuantity } =
+  const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart } =
     useContext(CartContext);
 
   if (cartItems.length === 0) {
@@ -45,6 +45,9 @@ function Cart() {
 
               <button onClick={() => increaseQuantity(product._id)}>
                 +
+              </button>
+              <button onClick={() => removeFromCart(product._id)}>
+                Delete
               </button>
             </div>
           </div>
