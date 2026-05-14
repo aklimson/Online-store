@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/ProductDetails.css";
+
+import { CartContext } from "../context/CartContext";
 
 function ProductDetails() {
   const { id } = useParams();
-
+  const navigate = useNavigate();
+  const { addToCart } = useContext(CartContext);
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
+  
 
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001/api";
 
@@ -110,9 +114,15 @@ function ProductDetails() {
           )}
 
           <div className="product-details-actions">
-            <Link className="details-button primary-button" to="/cart">
+            <button
+              className="details-button primary-button"
+              onClick={() => {
+                addToCart(product);
+                navigate("/cart");
+              }}
+            >
               Add to cart
-            </Link>
+            </button>
 
             <Link className="details-button secondary-button" to="/products">
               Back to products

@@ -1,24 +1,48 @@
 import "../styles/Cart.css";
 
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+
+import { CartContext } from "../context/CartContext";
+
 function Cart() {
+  const { cartItems } = useContext(CartContext);
+
+  if (cartItems.length === 0) {
+    return (
+      <main className="cart-page">
+        <h1>Your Cart</h1>
+
+        <p>Your cart is empty.</p>
+
+        <Link to="/products">Continue Shopping</Link>
+      </main>
+    );
+  }
+
   return (
-    <main className="cart">
-      <h1>Cart</h1>
+    <main className="cart-page">
+      <h1>Your Cart</h1>
 
-      <section className="cart-items">
-        <div className="cart-item">
-          <h3>Product</h3>
-          <p>Price: 499</p>
-          <p>Quantity: 1</p>
-        </div>
-      </section>
+      {cartItems.map((product) => (
+        <section className="cart-item" key={product._id}>
+          <div className="cart-item-image">
+            <img src={product.image} alt={product.name} width="200" />
+          </div>
 
-      <section className="cart-summary">
-        <h2>Order Summary</h2>
-        <p>Total: 499</p>
+          <div className="cart-item-info">
+            <h2>{product.name}</h2>
 
-        <button>Proceed to Checkout</button>
-      </section>
+            <p>{product.model}</p>
+
+            <p>{product.price} SEK</p>
+
+            <p>Quantity: {product.quantity}</p>
+          </div>
+        </section>
+      ))}
+
+      <Link to="/products">Continue Shopping</Link>
     </main>
   );
 }
