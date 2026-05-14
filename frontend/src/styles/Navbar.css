@@ -2,13 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 24px;
+  padding: 16px 32px;
   border-bottom: 1px solid #ddd;
   background: white;
 }
 
 .navbar-logo a {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   text-decoration: none;
   color: black;
@@ -16,15 +16,50 @@
 
 .navbar-links {
   display: flex;
-  gap: 16px;
+  align-items: center;
+  gap: 22px;
 }
 
 .navbar-links a {
   text-decoration: none;
   color: black;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .navbar-links a:hover {
   text-decoration: underline;
+}
+
+.navbar-auth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 8px;
+  padding-left: 18px;
+  border-left: 1px solid #ddd;
+}
+
+.navbar-user {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  background-color: #f3f4f6;
+  padding: 7px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.logout-button {
+  padding: 7px 12px;
+  border: 1px solid #111;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.logout-button:hover {
+  background: #111;
+  color: white;
 }
