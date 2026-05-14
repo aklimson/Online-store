@@ -99,7 +99,9 @@ export const resetPassword = async (req, res, next) => {
     const { email, newPassword } = req.body;
 
     if (!email || !newPassword) {
-      return res.status(400).json({ msg: "Email and new password are required" });
+      return res
+        .status(400)
+        .json({ msg: "Email and new password are required" });
     }
 
     const user = await User.findOne({ email });
