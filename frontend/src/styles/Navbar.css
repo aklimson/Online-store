@@ -95,10 +95,17 @@
   text-decoration: none;
 }
 .cart-link {
-  position: relative;
   display: flex;
   align-items: center;
   gap: 6px;
+
+  position: relative;
+
+  text-decoration: none;
+}
+
+.cart-link svg {
+  font-size: 20px;
 }
 
 .cart-badge {
