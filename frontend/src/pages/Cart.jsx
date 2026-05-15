@@ -9,6 +9,11 @@ function Cart() {
   const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart } =
     useContext(CartContext);
 
+  const totalAmount = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
   if (cartItems.length === 0) {
     return (
       <main className="cart-page">
@@ -53,6 +58,10 @@ function Cart() {
           </div>
         </section>
       ))}
+
+      <section className="cart-summary">
+        <h2>Total: {totalAmount} SEK</h2>
+      </section>
 
       <Link to="/products">Continue Shopping</Link>
     </main>
