@@ -1,10 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+
 import "../styles/Navbar.css";
+import { CartContext } from "../context/CartContext";
 
 function Navbar() {
   const navigate = useNavigate();
+
   const [user, setUser] = useState(null);
+
+  const { cartItems } = useContext(CartContext);
+
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   const loadUser = () => {
     const storedUser = localStorage.getItem("user");
@@ -31,6 +41,7 @@ function Navbar() {
     localStorage.removeItem("user");
 
     setUser(null);
+
     navigate("/login");
   };
 
@@ -42,11 +53,24 @@ function Navbar() {
 
       <nav className="navbar-links">
         <Link to="/">Home</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/about">About</Link>
-        <Link to="/cart">Cart</Link>
 
-        {user?.role === "admin" && <Link to="/admin">Admin</Link>}
+        <Link to="/products">Products</Link>
+
+        <Link to="/about">About</Link>
+
+        <Link to="/cart" className="cart-link">
+          Cart
+
+          {totalItems > 0 && (
+            <span className="cart-badge">
+              {totalItems}
+            </span>
+          )}
+        </Link>
+
+        {user?.role === "admin" && (
+          <Link to="/admin">Admin</Link>
+        )}
 
         {user ? (
           <div className="navbar-auth">
@@ -54,7 +78,10 @@ function Navbar() {
               Hi, {user.firstname}
             </Link>
 
-            <button className="logout-button" onClick={handleLogout}>
+            <button
+              className="logout-button"
+              onClick={handleLogout}
+            >
               Logout
             </button>
           </div>
