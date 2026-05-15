@@ -1,9 +1,8 @@
 import "../styles/Cart.css";
-
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-
 import { CartContext } from "../context/CartContext";
+import { FaTrash } from "react-icons/fa";
 
 function Cart() {
   const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart } =
@@ -52,7 +51,7 @@ function Cart() {
                 +
               </button>
               <button onClick={() => removeFromCart(product._id)}>
-                Delete
+                <FaTrash />
               </button>
             </div>
           </div>
@@ -61,9 +60,12 @@ function Cart() {
 
       <section className="cart-summary">
         <h2>Total: {totalAmount} SEK</h2>
+        <button className="checkout-button">
+          Proceed to Checkout
+        </button>
       </section>
 
-      <Link to="/products">Continue Shopping</Link>
+      <Link to="/products" className="continue-shopping-button">Continue Shopping</Link>
     </main>
   );
 }

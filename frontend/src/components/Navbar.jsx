@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
-
 import "../styles/Navbar.css";
 import { CartContext } from "../context/CartContext";
+import { FaShoppingCart } from "react-icons/fa";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -59,7 +59,8 @@ function Navbar() {
         <Link to="/about">About</Link>
 
         <Link to="/cart" className="cart-link">
-          Cart
+          <FaShoppingCart />
+          <span>Cart</span>
 
           {totalItems > 0 && (
             <span className="cart-badge">
