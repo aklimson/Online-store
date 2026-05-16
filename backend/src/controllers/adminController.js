@@ -211,6 +211,27 @@ class adminController {
             });
         }
     }
-    async deleteProduct(req, res) { }
+   
+    async getSingleProduct(req, res) {
+        try {
+
+            const { id } = req.params;
+
+            const product = await Product.findById(id);
+
+            if (!product) {
+                return res.status(404).json({
+                    msg: "Product not found"
+                });
+            }
+
+            return res.json(product);
+
+        } catch (err) {
+            return res.status(500).json({
+                msg: err.message
+            });
+        }
+    }
 
 }
