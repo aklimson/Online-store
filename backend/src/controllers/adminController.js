@@ -138,7 +138,38 @@ class adminController {
         }
     }
 
-    async addProduct(req, res) { }
+
+    async updateProduct(req, res) {
+        try {
+
+            const { id } = req.params;
+
+            const updatedProduct = await Product.findByIdAndUpdate(
+                id,
+                req.body,
+                {
+                    new: true,
+                    runValidators: true
+                }
+            );
+
+            if (!updatedProduct) {
+                return res.status(404).json({
+                    msg: "Product not found"
+                });
+            }
+
+            return res.json({
+                msg: "Product updated successfully",
+                product: updatedProduct
+            });
+
+        } catch (err) {
+            return res.status(500).json({
+                msg: err.message
+            });
+        }
+    }
     async updateProduct(req, res) { }
     async deleteProduct(req, res) { }
 
