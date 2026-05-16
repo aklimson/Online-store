@@ -170,7 +170,7 @@ class adminController {
             });
         }
     }
-    
+
     async deleteProduct(req, res) {
         try {
 
@@ -188,6 +188,22 @@ class adminController {
                 msg: "Product deleted successfully",
                 product: deletedProduct
             });
+
+        } catch (err) {
+            return res.status(500).json({
+                msg: err.message
+            });
+        }
+    }
+
+    async getAllProducts(req, res) {
+        try {
+
+            const products = await Product.find().sort({
+                timeCreated: -1
+            });
+
+            return res.json(products);
 
         } catch (err) {
             return res.status(500).json({
