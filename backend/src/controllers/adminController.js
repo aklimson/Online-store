@@ -26,7 +26,7 @@ class adminController {
             const price = Number(req.body.price);
             const quantity = Number(req.body.quantity);
 
-            
+
             if (!name) {
                 return res.status(400).json({
                     msg: "Product name is required"
@@ -82,7 +82,7 @@ class adminController {
                 });
             }
 
-            
+
             const existingProduct = await Product.findOne({
                 name,
                 model
@@ -108,6 +108,27 @@ class adminController {
             return res.status(201).json({
                 msg: "Product added successfully",
                 product
+            });
+
+        } catch (err) {
+            return res.status(500).json({
+                msg: err.message
+            });
+        }
+    }
+    async getAdminProfile(req, res) {
+        try {
+            const admin = await Admin.findById(req.user.id).select("-password");
+
+            if (!admin) {
+                return res.status(404).json({
+                    msg: "Admin not found"
+                });
+            }
+
+            return res.json({
+                msg: "Admin profile fetched successfully",
+                admin
             });
 
         } catch (err) {
