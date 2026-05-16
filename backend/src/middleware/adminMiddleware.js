@@ -4,3 +4,5 @@ export const adminMiddleware = (req, res, next) => {
   }
   next();
 };
+
+export default adminMiddleware;
