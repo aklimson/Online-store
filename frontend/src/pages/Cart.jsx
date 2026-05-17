@@ -60,9 +60,9 @@ function Cart() {
 
       <section className="cart-summary">
         <h2>Total: {totalAmount} SEK</h2>
-        <button className="checkout-button">
+        <Link to="/checkout" className="checkout-button">
           Proceed to Checkout
-        </button>
+        </Link>
       </section>
 
       <Link to="/products" className="continue-shopping-button">Continue Shopping</Link>

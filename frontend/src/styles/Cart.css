@@ -65,9 +65,19 @@
 }
 
 .checkout-button {
+  display: inline-block;
   padding: 12px 20px;
+  background-color: #e0e0e0;  /* light gray */
+  color: #000;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
-  font-size: 16px;
+  border: none;
+}
+
+.checkout-button:hover {
+  background-color: #d5d5d5;
 }
 
 .continue-shopping-button {
